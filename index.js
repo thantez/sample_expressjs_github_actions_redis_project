@@ -27,7 +27,7 @@ app.post('/users/:id', async (req, res) => {
   const username = req.body.username || ""
   const password = req.body.password || ""
   if (id == "" || username == "" || password == "") {
-    return res.sendStatus(500)
+    return res.sendStatus(400)
   }
 
   await db.hSet(`user:${id}`, {
@@ -40,7 +40,7 @@ app.post('/users/:id', async (req, res) => {
 app.get('/users/:id', async (req, res) => {
   const id = req.params.id || ""
   if (id == "") {
-    return res.sendStatus(500)
+    return res.sendStatus(400)
   }
 
   const user = await db.hGetAll(`user:${id}`)
