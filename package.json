@@ -1,0 +1,22 @@
+{
+  "name": "sample_expressjs_github_actions_redis_project",
+  "version": "0.0.1",
+  "description": "Sample expressjs+github actions+redis project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thantez/sample_expressjs_github_actions_redis_project.git"
+  },
+  "author": "",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/thantez/sample_expressjs_github_actions_redis_project/issues"
+  },
+  "homepage": "https://github.com/thantez/sample_expressjs_github_actions_redis_project#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
