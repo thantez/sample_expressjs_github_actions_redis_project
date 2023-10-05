@@ -23,18 +23,15 @@ app.get('/health', (_req, res) => {
 })
 
 app.post('/users/:id', async (req, res) => {
-  const id = req.params.id || ""
-  const username = req.body.username || ""
-  const password = req.body.password || ""
-  if (id == "" || username == "" || password == "") {
-    return res.sendStatus(500)
-  }
-
+  const id = req.params.id
+  const username = req.body.username
+  const password = req.body.password
+  console.log(req.body)
+  console.log(id, username, password)
   await db.hSet(`user:${id}`, {
     username,
     password
   })
-  return res.sendStatus(200)
 })
 
 app.get('/users/:id', (req, res) => {
