@@ -3,7 +3,9 @@ const express = require('express');
 const app = express();
 
 app.get('/health', (_req, res) => {
-  // TODO: return green status
+  res.send({
+    status: "green"
+  });
 });
 
 app.post('/users', (req, res) => {
@@ -13,3 +15,6 @@ app.post('/users', (req, res) => {
 app.get('/users/:id', (req, res) => {
   // TODO: return user with :id
 })
+
+const port = process.env.PORT || '3000'
+app.listen(port, () => console.log(`App is listening on port ${port}.`));
