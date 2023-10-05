@@ -6,9 +6,21 @@ services:
     image: redis
     ports:
       - "6379:6379"
+    networks:
+      - redis
+
   app:
     build: .
     container_name: app
     ports:
       - "3000:3000"
+    environment:
+      REDIS_HOST: redis
+    depends_on:
+      - redis
+    networks:
+      - redis
 
+networks:
+  redis:
+    driver: bridge
