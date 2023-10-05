@@ -37,8 +37,18 @@ app.post('/users/:id', async (req, res) => {
   return res.sendStatus(200)
 })
 
-app.get('/users/:id', (req, res) => {
-  // TODO: return user with :id
+app.get('/users/:id', async (req, res) => {
+  const id = req.params.id || ""
+  if (id == "") {
+    return res.sendStatus(500)
+  }
+
+  const user = await db.hGetAll(`user:${id}`)
+  if(Object.keys(user).length == 0) {
+    return res.sendStatus(404)
+  }
+
+  return res.send(user)
 })
 
 app.listen(port, () => console.log(`App is listening on port ${port}.`))
